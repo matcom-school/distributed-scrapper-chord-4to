@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href='style.css'>
+        
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script src='jquery.min.js'></script>
+        <script type='text/javascript'>
+            $(document).ready(function() {
+                var host = window.location.origin
+                $('textarea').keypress(function(e) {
+                    if(e.which == '13') {
+                        var text = $('textarea').val()
+                        $.get(host, {seach: text}, function(data,status){
+                            $('p').append(data[0])
+                            return 
+                            for (var i = 1; i <= data[0]; i++)
+                                if (data[i][1] == undefined) 
+                                    $('p').append( data[i][0] )
+                                else {
+                                    console.log('aaaaa')
+                                    $('p').append('<'+ data[i][0] + '></'+ data[i][0] + '>')
+                                    $(data[i][0]).text(data[i][1])
+                                }                        
+                            //window.location.href = 'http://' + data + '?seach=' + text                              
+                        })
+                        return false
+                    }
+                });
+            });
+        </script>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Google.fsd </title>
+    </head>
+    <body>
+        
+        <section>
+            <h1> Welcome Google.fsd </h1>
+            <div>
+                <textarea placeholder="write your query"  wrap="off"></textarea>
+            </div>
+            <p></p>
+        </section>
+    
+    </body>
+</html>
+
