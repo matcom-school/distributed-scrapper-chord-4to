@@ -12,6 +12,5 @@ def explore_network(nBit, port_base=9000):
         ports.remove(idp)
         if RPC.ping(-1, idp, d.sendTo): return idp
 
-    d.close()
     print("all machines in network is free")
     return None
