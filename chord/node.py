@@ -17,6 +17,7 @@ class ChordNode:
             self.update_finger_table.__name__: (self.update_finger_table, False),
             self.finger_table.__name__: (self.finger_table, False),
             self.notify.__name__: (self.notify, False),
+            'find' : (self.finger.find_key, True)
         }
 
     def finger_table(self):

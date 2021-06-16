@@ -1,6 +1,6 @@
 from deamon import Deamon
 from random import choice
-from worker import RPC
+from worker import RPC, Ping_Services, PING
 
 def explore_network(nBit, port_base=9000):
     d = Deamon(-1, port_base=port_base)
@@ -10,7 +10,7 @@ def explore_network(nBit, port_base=9000):
         print(len(ports), end='\r')
         idp = choice(ports)
         ports.remove(idp)
-        if RPC.ping(-1, idp, d.sendTo): return idp
+        if RPC.ping(-1, idp, d.sendTo, Ping_Services, PING): return idp
 
     print("all machines in network is free")
     return None

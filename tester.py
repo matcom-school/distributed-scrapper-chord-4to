@@ -2,6 +2,14 @@ from network import start_node
 import sys, time, os
 from concurrent.futures import ThreadPoolExecutor
 from random import choice
+from scrapper import Color, Parser
+
+f = open('index.html', 'r')
+t = f.read()
+c = Color()
+p = Parser(t)
+print(p.Main(c))
+sys.exit(1)
 
 m = int(sys.argv[1])
 n = int(sys.argv[2])

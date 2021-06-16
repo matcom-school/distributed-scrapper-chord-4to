@@ -11,18 +11,11 @@
                 var host = window.location.origin
                 $('textarea').keypress(function(e) {
                     if(e.which == '13') {
+                        $('p').text("")
                         var text = $('textarea').val()
                         $.get(host, {seach: text}, function(data,status){
-                            $('p').append(data[0])
-                            return 
-                            for (var i = 1; i <= data[0]; i++)
-                                if (data[i][1] == undefined) 
-                                    $('p').append( data[i][0] )
-                                else {
-                                    console.log('aaaaa')
-                                    $('p').append('<'+ data[i][0] + '></'+ data[i][0] + '>')
-                                    $(data[i][0]).text(data[i][1])
-                                }                        
+                            //$('p').text(data)                      
+                            $('p').append(data)                      
                             //window.location.href = 'http://' + data + '?seach=' + text                              
                         })
                         return false
@@ -37,11 +30,11 @@
     <body>
         
         <section>
-            <h1> Welcome Google.fsd </h1>
             <div>
-                <textarea placeholder="write your query"  wrap="off"></textarea>
+                <h1> Scrapper Web </h1>
+                <textarea placeholder="write your query and enter press"  wrap="off"></textarea>
             </div>
-            <p></p>
+            <p> Hola<span class='blue'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a href="http://localhost:9100">link</a><span class='green'>Mundo</span> </p>
         </section>
     
     </body>

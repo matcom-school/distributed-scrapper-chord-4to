@@ -21,17 +21,18 @@ section {
 }
 
 h1 {
-    font-size: 60px;
-    padding-top: 40px;
-    padding-bottom: 80px;
-
+    font-size: 40px;
 }
 
 textarea {
-    width : 85%;
+    width : 60%;
     height: 25px;
+    margin-left: 20px;
+    padding-left: 10px;
     resize: none;
-    border: transparent;
+    border-style: outset;
+    border-radius: 20px;
+    border-color:gray;
     background-color: transparent;
     font-size: 20px;
     overflow: hidden;
@@ -41,13 +42,9 @@ textarea {
 
 div {
     display: flex;
-    border-style: outset;
-    border-radius: 20px;
-    border-color:gray;
     align-items: center;
     flex-direction: row;
-    width: 600px;
-    padding: 10px;
+    width: 90%;
 }
 
 textarea:focus{
@@ -55,17 +52,31 @@ textarea:focus{
 }
 
 p {
-    margin-top: 40px;
+    padding: 10px;
     width: 95vw;
     height: auto;
-    min-height: 200px;
-    background-color:dimgray;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: azure;
+    min-height: 75%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:black;
+    border-style: outset;
+    border-radius: 20px;
+    border-color:dimgray;
 }
 
 span {
     background-color: transparent;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: underline;
+    color:darkred
+}
+
+.blue {
     color:darkblue;
+}
+
+.green {
+    color:darkgreen;
 }
