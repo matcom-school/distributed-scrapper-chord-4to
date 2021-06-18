@@ -67,13 +67,14 @@ class RPC:
             except AttributeError: name = f
             key = [service, name, list(params)]
             r = self.request(idn, name, service, *params)
-            if not r and timeout: raise TimeoutError
-            while wait:
+            while True:
+                if not r and timeout: raise TimeoutError
+                if not wait: break
                 try: 
                     result = self.response_dict.pop(str(key))
                     if result is None: 
                         time.sleep(1)
-                        self.request(idn, name, service, *params)
+                        r = self.request(idn, name, service, *params)
                     else: return result
                 except KeyError: pass
         

@@ -43,7 +43,7 @@ def parser(text, patron, pred, requered=True):
     innertext = space(text)
     
     if pred(innertext, patron): return patron, innertext[len(patron):]
-    elif not requered: '', text
+    elif not requered: return '', text
 
     return patron, innertext
 

@@ -1,7 +1,8 @@
 from deamon import Deamon
 from worker import RPC, Chord_Services, Scrapper_Services
 from chord import ChordNode
-from scrapper import Scrapper
+from scrapper import Scrapper, Color
+import time, random
 
 def start_node(idn, nBit, access_door = None):
     try:
@@ -9,7 +10,7 @@ def start_node(idn, nBit, access_door = None):
         rpc = RPC(idn, sender_func=deamon.sendTo)
         
         chord = ChordNode(idn, nBit)
-        scrapper = Scrapper(idn, chord.finger)
+        scrapper = Scrapper(idn)
 
         chord.rpc = rpc.caller_rpc(Chord_Services)
         scrapper.rpc = rpc.caller_rpc(Scrapper_Services)
@@ -19,10 +20,20 @@ def start_node(idn, nBit, access_door = None):
             chord.init_finger_table(access_door)
             chord.update_others()
         
-        print(f'\033[93m@@@@@@@@@@@@@@@@ {idn} finish start @@@@@@@@@@@@@@@@@@@@@@@@\033[0m')
+        print(Color.yellow(f'.............. {idn} finish start ......................'))
         rpc.services[Chord_Services] = chord.services
         rpc.services[Scrapper_Services] = scrapper.services
-        #chord.stabilize()
+        
+        while True:
+            time.sleep(random.randint(10, 20))
+            print(f'.........{idn} stabilize .............')
+            chord.succ_stabilize()
+            time.sleep(2)
+            chord.fix_fingers()
+            time.sleep(2)
+            list_ = scrapper.hashs()
+            key, dest = chord.finger.checking_property(list(list_))
+            if not key is None: scrapper.replace(key, dest)
 
     except Exception as e:
         print(e.args)

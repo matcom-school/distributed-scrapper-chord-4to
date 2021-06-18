@@ -1,0 +1,15 @@
+beautifulsoup4==4.9.3
+certifi==2021.5.30
+chardet==4.0.0
+click==8.0.1
+idna==2.10
+itsdangerous==2.0.1
+Jinja2==3.0.1
+MarkupSafe==2.0.1
+pyzmq==22.0.3
+requests==2.25.1
+serpent==1.30.2
+soupsieve==2.2.1
+urllib3==1.26.5
+Werkzeug==2.0.1
+zmq==0.0.0

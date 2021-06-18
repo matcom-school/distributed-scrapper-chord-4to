@@ -17,7 +17,8 @@ class ChordNode:
             self.update_finger_table.__name__: (self.update_finger_table, False),
             self.finger_table.__name__: (self.finger_table, False),
             self.notify.__name__: (self.notify, False),
-            'find' : (self.finger.find_key, True)
+            'find' : (self.finger.find_key, True),
+            'down' : (self.finger.down, False),
         }
 
     def finger_table(self):
@@ -86,15 +87,7 @@ class ChordNode:
             if not self.predecessor() == s: self.rpc(self.predecessor(),self.update_finger_table, s,i, wait = False)
         
 
-######################## stabilize ##########################################################
-    def stabilize(self):
-        while True:
-            time.sleep(random.randint(2,6))
-            print(f'.........{self.id} stabilize .............')
-            self.succ_stabilize()
-            time.sleep(random.randint(1,3))
-            self.fix_fingers()
-            
+######################## stabilize ##########################################################            
     def succ_stabilize(self):
         x = self.rpc(self.successor(), self.predecessor) 
         if self.finger.in_open_interval(x, self.id, self.successor(), False):

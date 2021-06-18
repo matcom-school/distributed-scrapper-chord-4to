@@ -1,6 +1,5 @@
 import random
 
-
 class FingerTable:
     def __init__(self, idn, nBits) -> None:
         self.n = idn
@@ -12,6 +11,17 @@ class FingerTable:
         self.objetive = [pred] + [ (self.start[i+1] + 1) % self.max_index for i in range(nBits) ]
         
         self.nodes = [ idn for _  in range(nBits + 1)]
+
+    def checking_property(self, list_):
+        for key, hsh in list_:
+            i = self.find_key(hsh)
+            if not i == self.n: return key, i
+        
+        return None, None
+        
+    def down(self, i):
+        for n in range(len(self.nodes)): 
+            if self.nodes[n] == i: self.nodes[n] = self.n 
 
     def pred(self, a): return a - 1 if a > 0 else self.max_index - 1 
     def succ(self, a): return a + 1 if a < self.max_index else 0 
