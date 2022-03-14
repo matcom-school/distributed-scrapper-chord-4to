@@ -26,7 +26,7 @@ class Scrapper:
     def get(self, url, hsh, index):
         if url in self.caching: 
             print(Color.green(f'{self.id} answer with cache about {url}'))
-            return self.caching[url][1]
+            return True, self.caching[url][1]
 
         html = self.download(url, hsh)
         if self.id == index: return self.cache(html, url, hsh)
