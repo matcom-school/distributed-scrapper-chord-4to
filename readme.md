@@ -1,4 +1,3 @@
-óúíéá
 # Proyecto Final de Sistams Distribuido 
 
 El proyecto consta de un cliente html y un server implementado con el módulo de python 
@@ -28,6 +27,7 @@ el navegador se pregunta por "http://localhost:9100" y "http://localhost:8000" s
 29 respectivamente. Los encargados de descargar y almacenar en cache según chord son los nodos 16 y 1 
 
 ### Salida del server
+```bash
 Deamon listen to localhost:8999
 Deamon listen to localhost:9004
 .............. 4 finish start ......................
@@ -60,3 +60,4 @@ Deamon listen to localhost:9016
 .........7 stabilize .............
 127.0.0.1 - - [20/Jun/2021 17:16:11] "GET /?seach=%3A9100 HTTP/1.1" 200 -
 .........1 stabilize .............
+```
